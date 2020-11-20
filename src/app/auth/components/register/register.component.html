@@ -1,0 +1,26 @@
+<div class="register-container" [style.backgroundImage]="'url('+ banner?.banner?.image +')'">
+  <div class="elements-wrapper">
+    <h1 hidden></h1>
+    <h2 hidden></h2>
+    <mat-card class="register-card" [hidden]="isFatalError">
+      <ng-container>
+        <div class="row">
+          <div class="col-12" [ngClass]="isPaidEvent? 'pb-4' : ''">
+            <div>
+              <img class="reg-logo"
+                [src]="bannerSettings?.image != undefined ? bannerSettings?.image : eventData?.logo" alt="Register logo">
+              <h3 *ngIf="!isPaidEvent || selectedTicket">{{bannerSettings?.heading != undefined ? bannerSettings?.heading : 'Registration'}}</h3>              
+            </div>
+          </div>
+        </div>
+
+        <div class="form-content">
+          <signup-partial *ngIf="registerFieldsModel" [orgRegisterFields]="orgRegisterFields" (ticketSelected)="onTicketSelection($event)"
+            [registerFields]="registerFieldsModel" [countryOptions]="countryOptions" [stateOptions]="stateOptions"
+            [login]="''" [photoPath]="''" [socialId]="socialId" [authMode]="authMode" [code]="code" [state]="state">
+          </signup-partial>
+        </div>
+      </ng-container>
+    </mat-card>
+  </div>
+</div>

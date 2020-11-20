@@ -1,0 +1,29 @@
+@import './_variable.scss';
+
+@mixin gridwidth($widthvalue) {
+    width: $widthvalue;
+}
+@mixin flexElement($direction, $itemposition, $justifyContent) {
+    display: flex;
+    align-items: $itemposition;
+    justify-content: $justifyContent;
+}
+.content_row{
+    width: $containerWidth;
+}
+.content_wrapper{
+    width: $containerWidth;  
+}
+.content_column2{
+    @include gridwidth(50%);  
+}
+.content_column3{
+    @include gridwidth(33.33%);  
+}
+.content_column4{
+    @include gridwidth(25%);  
+}
+.content_column5{
+    @include gridwidth(20%);  
+}
+@import './media_queries.scss';

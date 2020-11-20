@@ -1,0 +1,23 @@
+<div class="container-fluid py-3 header-background">
+  <div class="row">
+    <div class="col-12">
+      <h5 class="fs-h5 header-text-color">
+        Our Speakers
+      </h5>
+    </div>
+  </div>
+</div>
+<div class="container-fluid bg-icon py-5">
+  <div *ngFor="let spk of speakerJson" class="row mb-5">
+    <div class="col-2 col-sm-2 col-md-3 col-lg-3">
+      <div class="speaker-holder d-flex flex-column justify-content-center align-items-center position-relative">
+        <div class="edit-speaker-btn">
+          <span class="material-icons">edit</span>
+        </div>
+        <img class="rounded-circle" [src]="spk.photoPath" alt="{{spk.firstName}}">
+        <div class="name color-primary font-weight-bold mt-2 mb-1">{{spk.firstName}} {{spk.lastName}}</div>
+        <div class="company color-graphite">{{spk.title}}, {{spk.company}}</div>
+      </div>
+    </div>
+  </div>
+</div>

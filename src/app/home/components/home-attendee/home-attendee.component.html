@@ -1,0 +1,79 @@
+<div class="attendee-wrapper">
+  <section class="sectionHeading header-background">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-10 col-auto">
+          <div *ngIf="label" class="content">
+            <span> {{label}}</span>
+          </div>
+          <div class="header-text-color" *ngIf="!label" class="content">Our Attendees</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="attendees">
+    <div class="container">
+      <div class="row imagesRow1">
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="userPic" title="Click to view profile" onclick="GoToProfile(73548)">
+            <div class="spaceImg-md d_flex align_items_center justify_content_center" onclick="GoToProfile(73548)"
+              title="Click to view profile"> <img
+                src="https://s27platformmedia.azureedge.net/profileimages/4939be832d784fa5b55a5d24c4bf74ab_205x252.png"
+                class="w_100"></div>
+            <p class="userNames color-primary">Steve Adelson</p>
+            <p class="userDescription body-text-color"> Chief Operation Officer</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="userPic" title="Click to view profile" onclick="GoToProfile(77336)">
+            <div class="spaceImg-md d_flex align_items_center justify_content_center" onclick="GoToProfile(77336)"
+              title="Click to view profile"> <img
+                src="https://s27platformmedia.azureedge.net/profileimages/b264aab8251c43b98ce17ff3e7a688a6_205x252.png"
+                class="w_100"></div>
+            <p class="userNames color-primary">Greg Alfond</p>
+            <p class="userDescription body-text-color"> Vice President</p>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="userPic" title="Click to view profile" onclick="GoToProfile(109335)">
+            <div class="spaceImg-md d_flex align_items_center justify_content_center" onclick="GoToProfile(109335)"
+              title="Click to view profile"> <img
+                src="https://s27platformmedia.azureedge.net/profileimages/d87c835e8f5349e4826e4551622bcd74_205x252.png"
+                class="w_100"></div>
+            <p class="userNames color-primary">John Anderson</p>
+            <p class="userDescription body-text-color"> Chief Digital and Technology Officer</p>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="userPic" title="Click to view profile" onclick="GoToProfile(109400)">
+            <div class="spaceImg-md d_flex align_items_center justify_content_center" onclick="GoToProfile(109400)"
+              title="Click to view profile"> <img
+                src="https://s27platformmedia.azureedge.net/profileimages/cc1dd9d52e8742639b7b28902dd0ced5_205x252.png"
+                class="w_100"></div>
+            <p class="userNames color-primary">Marnus Anderson</p>
+            <p class="userDescription body-text-color"> Head of Strategic Projects and Performance, SME</p>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="carousel-wrapper">
+            <owl-carousel-o [options]="carousalOptions">
+              <ng-container *ngFor="let slide of attendee">
+                <ng-template carouselSlide [id]="slide.id">
+                  <div class="slider-template-wrapper">
+                    <div class="image-container"><img [src]="slide.photoPath" [alt]="slide.title" [title]="slide.title">
+                    </div>
+                  </div>
+                </ng-template>
+              </ng-container>
+            </owl-carousel-o>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

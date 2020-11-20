@@ -1,0 +1,275 @@
+<!-- <div class="container-fluid py-3 header-background">
+  <div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h5 class="fs-h5 header-text-color">
+        Our Agenda
+      </h5>
+    </div>
+  </div>
+</div>
+</div>
+<div *ngFor="let session of sessions" class="container-fluid px-0">
+  <div *ngFor="let item of session.items" class="row no-gutters session-row position-relative">
+    <div class="edit-agenda-button">
+      <span (click)="editSession(session)" class="material-icons">edit</span>
+    </div>
+    <div class="col-md-4 col-lg-4 session-left card-background">
+      <div class="session-meta d-flex flex-column align-items-center h-100">
+        <div class="session-time d-flex align-items-center color-p"><span class="material-icons mr-1">schedule</span>
+          {{item.session.startDate | date: 'h:mm a' }} - {{ item.session.endDate | date: 'h:mm a'}}</div>
+        <div class="session-name color-p font-weight-bold">{{ item.session.sessionTitle }}</div>
+      </div>
+    </div>
+    <div class="col-md-8 col-lg-8 session-right">
+      <div class="session-details-wrapper">
+        <div class="session-description color-graphite" [innerHtml]="item.session.description">
+        </div>
+        <div class="session-speakers d-flex mt-4">
+          <div *ngFor="let speaker of item.speakers"
+            class="speaker-block d-flex flex-column align-items-center justify-content-center mr-4">
+            <div class="speaker-image">
+              <img class="w-100 rounded-circle" [src]="speaker.photoPath">
+            </div>
+            <div class="speaker-name mt-2 color-primary">{{speaker.firstName}} {{speaker.lastName}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid py-3 header-background">
+  <div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h5 class="fs-h5 header-text-color">
+        Our Agenda
+      </h5>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container">
+  <div class="agenda-list my-5">
+    <div *ngFor="let session of sessions">
+      <div *ngFor="let item of session.items" class="list-item">
+        <div class="time">
+          <p class="start-time">{{item.session.startDate | date: 'h:mm a' }}</p>
+          <p class="full-time mb-2 mb-sm-0 d-flex align-items-center color-primary"><span class="material-icons mr-1">schedule</span>
+            {{item.session.startDate | date: 'h:mm a' }} - {{ item.session.endDate | date: 'h:mm a'}}</p>
+        </div>
+        <div class="details">
+          <div class="title-name fs-ex-large"><strong>{{ item.session.sessionTitle }}</strong></div>
+          <div class="session-description fs-ex-medium" [innerHtml]="item.session.description"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ -->
+
+
+<section class="ng-star-inserted d-none">
+
+  <div id="sec-agenda" class="section">
+
+    <div class="py-3 header-background">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h5 class="fs-h5 header-text-color"> Our Agenda </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="agenda-list my-5">
+        <div class="ng-star-inserted">
+          <div class="list-item ng-star-inserted">
+            <div class="time">
+              <p class="start-time">10:15</p>
+              <p class="full-time mb-2 mb-sm-0 d-flex align-items-center color-primary"><span
+                  class="material-icons mr-1">schedule</span> 10:15 - 11:15</p>
+            </div>
+            <div class="details">
+              <div class="title-name fs-ex-large"><strong> Welcome &amp;
+                  Opening Session</strong></div>
+            </div>
+          </div>
+          <div class="list-item ng-star-inserted">
+            <div class="time">
+              <p class="start-time">11:15</p>
+              <p class="full-time mb-2 mb-sm-0 d-flex align-items-center color-primary"><span
+                  class="material-icons mr-1">schedule</span> 11:15 - 11:40</p>
+            </div>
+            <div class="details">
+              <div class="title-name fs-ex-large"><strong> Breakout
+                  Session 1</strong></div>
+            </div>
+          </div>
+          <div class="list-item ng-star-inserted">
+            <div class="time">
+              <p class="start-time">11:40</p>
+              <p class="full-time mb-2 mb-sm-0 d-flex align-items-center color-primary"><span
+                  class="material-icons mr-1">schedule</span> 11:40 - 12:05</p>
+            </div>
+            <div class="details">
+              <div class="title-name fs-ex-large"><strong> Breakout
+                  Session 2</strong></div>
+            </div>
+          </div>
+
+        </div>
+        <div class="ng-star-inserted">
+          <div class="list-item ng-star-inserted">
+            <div class="time">
+              <p class="start-time">12:05</p>
+              <p class="full-time mb-2 mb-sm-0 d-flex align-items-center color-primary"><span
+                  class="material-icons mr-1">schedule</span> 12:05 - 13:25 </p>
+            </div>
+            <div class="details">
+              <div class="title-name fs-ex-large"><strong>Breakout
+                  Session 3</strong></div>
+            </div>
+          </div>
+          <div class="list-item ng-star-inserted">
+            <div class="time">
+              <p class="start-time">13:25</p>
+              <p class="full-time mb-2 mb-sm-0 d-flex align-items-center color-primary"><span
+                  class="material-icons mr-1">schedule</span> 13:25 - 13:50</p>
+            </div>
+            <div class="details">
+              <div class="title-name fs-ex-large"><strong>Guest
+                  Speaker</strong></div>
+            </div>
+          </div>
+          <div class="list-item ng-star-inserted">
+            <div class="time">
+              <p class="start-time">13:50</p>
+              <p class="full-time mb-2 mb-sm-0 d-flex align-items-center color-primary"><span
+                  class="material-icons mr-1">schedule</span>13:50</p>
+            </div>
+            <div class="details">
+              <div class="title-name fs-ex-large"><strong> Session
+                  End</strong></div>
+            </div>
+          </div>
+
+        </div>
+        <div class="ng-star-inserted">
+          <div class="list-item ng-star-inserted">
+            <div class="time">
+              <p class="start-time">14:00</p>
+              <p class="full-time mb-2 mb-sm-0 d-flex align-items-center color-primary"><span
+                  class="material-icons mr-1">schedule</span> 14:00 - 15:30</p>
+            </div>
+            <div class="details">
+              <div class="title-name fs-ex-large"><strong>Live Happy
+                  Hour Panels with Q&amp;A</strong></div>
+            </div>
+          </div>
+          <div class="list-item ng-star-inserted">
+            <div class="time">
+              <p class="start-time">13:50</p>
+              <p class="full-time mb-2 mb-sm-0 d-flex align-items-center color-primary"><span
+                  class="material-icons mr-1">schedule</span> 13:50 - 18:00 </p>
+            </div>
+            <div class="details">
+              <div class="title-name fs-ex-large"><strong> Connect with
+                  your peers, join virtual Tableau Doctor appointments, explore Data Village</strong></div>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Latest Agenda Style -->
+
+
+
+<section class="agenda-n pb-5">
+
+  <div class="py-3 header-background mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h5 class="fs-h5 mb-2 mb-sm-0 header-text-color font-weight-bold"> Agenda </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        <h1 class="date">Tuesday, 30 June 2020</h1>
+        <h4 class="time-zone">Times in BST</h4>
+
+        <ul class="agenda-lists">
+
+          <li>
+            <div class="time">
+              9:30
+            </div>
+            <h1>Welcome & Opening Session</h1>
+          </li>
+          <li>
+            <div class="time red">
+              10:15
+            </div>
+            <h1>Breakout Session</h1>
+          </li>
+          <li>
+            <div class="time red">
+              10:40
+            </div>
+            <h1>Breakout Session</h1>
+          </li>
+          <li>
+            <div class="time red">
+              11:05
+            </div>
+            <h1>Breakout Session</h1>
+          </li>
+          <li>
+            <div class="time">
+              11:30
+            </div>
+            <h1>Guest Speaker</h1>
+          </li>
+          <li>
+            <div class="time blue">
+              12:00
+            </div>
+            <h1>Network Roundtables, Tableau Doctor, Happy Hours and Fun</h1>
+          </li>
+          <li>
+            <div class="time blue">
+              16:00
+            </div>
+            <h1>Event Ends</h1>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-12 d-flex justify-content-center mt-5">
+        <a href="tableau/agenda" class="button-background button-border button-text-color no-border px-4 py-2 text-decoration-none">VIEW BREAKOUT SESSIONS</a>
+
+      </div>
+    </div>
+  </div>
+
+</section>

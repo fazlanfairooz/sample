@@ -1,0 +1,110 @@
+/** add the elements with same naming conventions **/
+
+/** body colors block start **/
+
+/** changeable backgrounds **/
+.body-background {
+  background: #000000;
+}
+
+.drawer-background {
+  background: #0c1323;
+}
+.card-background {
+  background: #0c1323;
+}
+.header-background {
+  background: #011d46;
+}
+
+.tags-header-background {
+  background: #0078d7;
+}
+
+/** changeable colors **/
+
+.body-text-color {
+  color: #ffffff;
+}
+
+.header-text-color {
+  color: #ffffff;
+}
+
+/**changeable buttons**/
+
+.button-background {
+  background: #9000ff;
+}
+
+.button-background:disabled {
+  background: #ccc;
+}
+
+.button-text-color {
+  color: #fff!important;
+}
+.button-text-color:disabled {
+  color: #000;
+}
+
+/** changeable fonts **/
+.body-font-family {
+  /* font-family: 'benton' !important; */
+}
+
+/** tabs **/
+.mat-tab-header {
+  background: #011d46 !important;
+}
+
+.mat-tab-label-active {
+  background: #9000ff !important;
+}
+
+.mat-tab-label {
+  color: #fff !important;
+}
+
+.mat-ink-bar {
+  background: #9000ff !important;
+}
+
+/** material tab colors  block end**/
+
+/** link color **/
+.link-color {
+  color: #00c6ff;
+}
+
+/** menu colors **/
+.menu-background {
+  background: #3f3f3f !important;
+}
+
+.menu-item {
+  color: #fff !important;
+}
+
+.menu-item span {
+  color: #00c6ff;
+}
+
+.menu-item.active,
+.menu-item:hover {
+  color: #00c6ff !important;
+}
+.menu-item.active span {
+  text-shadow: 0 0 12px rgba(0, 198, 255, 0.9);
+  color: #fff;
+}
+
+.border-color-brand {
+  border-color: #9000ff;
+}
+
+.text-color-brand {
+  color: #9000ff;
+}
+
+/* -------------------------------- */

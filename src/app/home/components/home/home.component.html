@@ -1,0 +1,63 @@
+
+<div [ngSwitch]="n.name" *ngFor="let n of nonCustomModules; trackBy: trackByIndex">
+  <div *ngSwitchCase="'ng-Custom'">
+    <events-custom *ngIf="customHtmlById[n.Id] as customHtml" [html]="customHtml" [settings]="n.settings"></events-custom>
+
+  </div>
+
+  <div *ngSwitchCase="'ng-banner'">
+    <custom-banner title="" [banner]="n.banner"></custom-banner>
+  </div>
+
+  <section *ngSwitchCase="'ng-agenda-onepager'">
+    <div class="section" id='sec-agenda'>
+      <de-singlepage-agenda></de-singlepage-agenda>
+    </div>
+  </section>
+
+  <section *ngSwitchCase="'ng-speakers-light'" class="spe">
+    <div class="section">
+      <home-speakers [label]="n.label" [description]="n.description" [record]="n.records" [recordPerRow]="n.recordPerRow"></home-speakers>
+    </div>
+  </section>
+
+  <!-- single page speakers start-->
+  <section *ngSwitchCase="'ng-speakers-onepager'">
+    <div class="section" id='sec-speakers'>
+      <de-singlepage-speakers></de-singlepage-speakers>
+    </div>
+  </section>
+  <!-- single page speakers end -->
+
+  <section *ngSwitchCase="'ng-sponsors-light'" class="spe">
+    <div class="section">
+      <home-sponsors [label]="n.label" [description]="n.description" [record]="n.records" [recordPerRow]="n.recordPerRow" [settings]="n?.settings" ></home-sponsors>
+    </div>
+  </section>
+
+  <!-- single page sponsors start -->
+  <section *ngSwitchCase="'ng-sponsors-onepager'" class="spe">
+    <div class="section" id='sec-sponsors'>
+      <de-singlepage-sponsors></de-singlepage-sponsors>
+    </div>
+  </section>
+  <!-- single page sponsors end -->
+
+  <div *ngSwitchCase="'ng-AboutEvent'">
+    <home-about-event [label]="n.label"></home-about-event>
+  </div>
+
+  <div *ngSwitchCase="'ng-Event-When'">
+    <home-event-when></home-event-when>
+  </div>
+
+  <div *ngSwitchCase="'ng-home-playlist'">
+    <home-playlist [playListId]="getPlaylistId(n.playListId)" [label]="n.label" [description]="n.description" [settings]="n.settings"></home-playlist>
+  </div>
+
+  <div *ngSwitchCase="'ng-join-in'">
+    <home-join-in></home-join-in>
+  </div>
+</div>
+
+

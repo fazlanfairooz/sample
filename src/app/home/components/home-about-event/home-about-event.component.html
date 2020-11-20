@@ -1,0 +1,21 @@
+<div class="container-fluid py-3 header-background">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h5 *ngIf="label" class="fs-h5 header-text-color">{{label}}</h5>
+        <h5 *ngIf="!label" class="fs-h5 header-text-color">About {{eventDetails.title}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<section id="about" class="body-background">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div [innerHtml]="eventDetails.abstract" class="content">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

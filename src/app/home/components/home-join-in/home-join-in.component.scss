@@ -1,0 +1,35 @@
+#joinUsRelease {
+  padding: 0 0 60px;
+  min-height: 0;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+img.responsive-img {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#joinUsRelease .pic {
+  border: 0 !important;
+  border-radius: 50%;
+  margin: 30px auto 15px;
+  width: 200px;
+  height: 200px;
+  font-weight: bold;
+  padding: 30px;
+}
+
+#joinUsRelease h5.center {
+  font-size: 26px !important;
+  font-family: 'AvenirNext LT Pro Bold';
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+#joinUsRelease .button-background {
+  line-height: 45px !important;
+  padding: 0 20px !important;
+}

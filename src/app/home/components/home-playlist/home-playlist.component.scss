@@ -1,0 +1,129 @@
+.playlist-briefcase {
+  ::ng-deep .rightSide-PlayGround-box {
+    min-height: 94vh;
+  }
+
+
+  ::ng-deep  #roomPreviewPage_content {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 60%;
+    padding-bottom: 0 !important;
+    background-color: #f4f4f4;
+  }
+
+  
+  ::ng-deep .mr-player {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 60%;
+    padding-bottom: 0 !important;
+    background-color: #f4f4f4;
+  }
+ 
+
+  ::ng-deep iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border:0;
+  }
+
+  @media (max-width: 1364px) {
+    ::ng-deep .mr-player {
+      padding-top: 64%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    ::ng-deep .mr-player {
+      padding-top: 80%;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .patioveride {
+    padding: 5px 15px !important;
+    font-size: 18px !important;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .chat-panel {
+    width: 100%;
+    position: relative;
+
+    ::ng-deep .forScroll {
+      width: 100% !important;
+    }
+  }
+
+  .closeChat {
+    display: none;
+  }
+
+  .cht-sm-none {
+    display: block !important;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .openChat {
+    display: none !important;
+  }
+
+  .closeChat {
+    display: none !important;
+  }
+}
+
+.openChat {
+  height: 49px;
+  width: 49px;
+  background-color: #0cacdb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  right: 0;
+  z-index: 99;
+  cursor: pointer;
+
+  img {
+    width: 26px;
+  }
+}
+
+.closeChat {
+  height: 49px;
+  width: 49px;
+  background-color: #0cacdb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 99;
+  cursor: pointer;
+  left: -49px;
+
+  img {
+    width: 26px;
+  }
+}
+
+
+.sponsor-descriptions {
+
+  ul {
+    list-style: disc;
+  }
+}

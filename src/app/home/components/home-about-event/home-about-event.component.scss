@@ -1,0 +1,21 @@
+.sectionHeading {
+  .row {
+    margin: 0;
+  }
+  padding: 20px 0;
+
+  .content {
+    line-height: 36px;
+  }
+}
+
+
+#about {
+  padding: 40px 0;
+  .content {
+    p {
+      line-height: 24px;
+      margin-bottom: 20px;
+    }
+  }
+}

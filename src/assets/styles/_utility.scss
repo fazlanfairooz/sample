@@ -1,0 +1,183 @@
+@import '../../assets/styles/_mixins';
+@import '../../assets/styles/_variable';
+$val1:10px;
+$val2:20px;
+
+.m_auto{
+    margin:0 auto;
+}
+.m_0{
+    margin:0 !important;
+}
+.m_10{
+    margin:$val1;
+}
+.m_x_10{
+    margin: 0px $val1
+}
+.m_y_10{
+margin: $val1 0px;
+}
+.m_r_10{
+    margin-right: $val1;
+}
+.m_l_10{
+    margin-left: $val1;
+}
+.m_b_10{
+    margin-bottom: $val1;
+}
+.m_t_10{
+    margin-top: $val1;
+}
+
+
+.m_20{
+    margin:$val2;
+}
+.m_x_20{
+    margin: 0px $val2;
+}
+.m_y_20{
+margin: $val2 0px;
+}
+.m_r_20{
+    margin-right: $val2;
+}
+.m_l_20{
+    margin-left: $val2;
+}
+.m_b_20{
+    margin-bottom: $val2;
+}
+.m_t_20{
+    margin-top: $val2;
+}
+
+/*Padding start here*/
+.p_10{
+    padding:$val1;
+}
+.p_x_10{
+    padding: 0px $val1
+}
+.p_y_10{
+padding: $val1 0px;
+}
+.p_r_10{
+    padding-right: $val1;
+}
+.p_l_10{
+    padding-left: $val1;
+}
+.p_b_10{
+    padding-bottom: $val1;
+}
+.p_t_10{
+    padding-top: $val1;
+}
+
+.p_20{
+    padding:$val2;
+}
+.p_x_20{
+    padding: 0px $val2;
+}
+.p_y_20{
+padding: $val2 0px;
+}
+.p_r_20{
+    padding-right: $val2;
+}
+.p_l_20{
+    padding-left: $val2;
+}
+.p_b_20{
+    padding-bottom: $val2;
+}
+.p_t_20{
+    padding-top: $val2;
+}
+
+/*Cursor style*/
+.cursorPointer{
+    cursor: pointer;
+}
+.cursorPointer:hover{
+    opacity: 0.7;
+}
+
+/*Positioning properties*/
+.p_relative{
+    position: relative;
+}
+.p_absolute{
+    position: absolute;
+}
+.p_static{
+    position: static;
+}
+.p_fixed{
+    position: fixed;
+}
+
+/*Text alignment*/
+
+.text-align-left{
+    text-align: left !important;
+}
+.text-align-right{
+    text-align: right !important;
+}
+.text-align-center{
+    text-align: center !important;
+}
+
+/*Flex model*/
+.d_flex_row_start{
+    @include flexElement(row,center,flex-start);
+    p{
+        color:$color8;
+    }
+}
+.d_flex_row_distributed{
+    @include flexElement(row,center,space-between);
+    p{
+        color:$color8;
+    }
+}
+
+.d_flex_column_center{
+    @include flexElement(column,center,center);
+    p{
+        color:$color8;
+    }
+}
+.d_flex_column_end{
+    @include flexElement(column,flex-end,center);
+    p{
+        color:$color3;
+    }   
+}
+/*Color Schema*/
+.b_purple{
+    @include borderdesign(solid, 5px , $color4);
+}
+.bb_gray{
+    border-bottom: 1px solid #595858;
+}
+/*background schema*/
+.bg_purple{
+     @include backgroundColor($color4,none,center,repeat);
+}
+
+/*Button style*/
+.button-ele{
+padding: 5px 10px;
+border:none;
+border-radius: 6px;
+}
+.button-purple{
+    @include backgroundColor($color4,none,center,repeat);
+    color:$color3;
+}

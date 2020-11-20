@@ -1,0 +1,175 @@
+.color-h1 {
+    color: white;
+  }
+  .color-h2 {
+    color: white;
+  }
+  .color-h3 {
+    color: white;
+  }
+  .color-h4 {
+    color: white;
+  }
+  .color-h5 {
+    color: white;
+  }
+  .color-h6 {
+    color: white;
+  }
+  .color-header {
+    color: white;
+  }
+  .color-body {
+    color: white;
+  }
+  .color-link {
+    color: #00c6ff;
+  }
+  .color-list {
+    color: white;
+  }
+  .color-tab {
+    color: white;
+  }
+  .color-menu {
+    color: white;
+  }
+  .color-section {
+    color: white;
+  }
+  .btn-text-color {
+    color: white;
+  }
+  .color-span {
+    color: white;
+  }
+  .color-p {
+    color: white;
+  }
+  .color-rambo {
+    color: #011d46;
+  }
+  .color-white {
+    color: #ffffff;
+  }
+  .color-primary {
+    color: #00c6ff;
+  }
+  .color-secondary {
+    color: #9000ff;
+  }
+  .color-gold {
+    color: #e7c000;
+  }
+  .color-graphite {
+    color: #737d8d;
+  }
+
+  /*BACKGROUND COLORS*/
+
+  .bg-h2 {
+    background: #011d46;
+  }
+  .bg-h1 {
+    background: #011d46;
+  }
+  .bg-h3 {
+    background: #011d46;
+  }
+  .bg-h4 {
+    background: #011d46;
+  }
+  .bg-h5 {
+    background: #011d46;
+  }
+  .bg-h6 {
+    background: #011d46;
+  }
+  .bg-header {
+    background: #011d46;
+  }
+  .bg-body {
+    background: #000000;
+  }
+  .bg-link {
+    background: #011d46;
+  }
+  .bg-list {
+    background: #003c6c;
+  }
+  .bg-tab {
+    background: #003c6c;
+  }
+  .bg-section {
+    background: #003c6c;
+  }
+  .bg-primary {
+    background: #00c6ff;
+  }
+  .bg-prupleshades {
+    background: #9000ff;
+  }
+  .bg-effective {
+    background: #e7c000;
+  }
+  .bg-rambo {
+    background: #011d46;
+  }
+  .bg-icon {
+    background: #ffffff;
+  }
+  .bg-btn {
+    background: #9000ff;
+  }
+  .bg-input {
+    background: #061835;
+  }
+  .bg-transparent {
+    background: transparent !important;
+  }
+  .bg-img-abastract {
+    background: url("../../img/bannerbg.png");
+    background-repeat: repeat;
+    background-position: right 0px bottom 0px;
+    background-attachment: fixed;
+    min-height: 65vh;
+    height: auto;
+  }
+  .bg-img-overlay {
+    background: url("https://s27platformmedia.azureedge.net/digitalevents/custom_images/layer1.png");
+    background-position: left;
+    background-repeat: no-repeat;
+    min-height: 65vh;
+    height: auto;
+  }
+
+
+  /*BORDERS*/
+  /*BORDERS*/
+.border-primary {
+    border: 1px solid #00c6ff;
+  }
+
+  .border-purple {
+    border: 4px solid #9000ff;
+  }
+  .border-white{
+    border: 4px solid white;
+  }
+
+  .thin-border-purple {
+    border: 2px solid #9000ff;
+  }
+
+  /*BUTTONS*/
+  .btn-approve {
+    background: #599259;
+  }
+
+  .btn-reject {
+    background: #c43434;
+  }
+
+  .btn-comment {
+    color: #fff;
+  }

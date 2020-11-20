@@ -1,0 +1,256 @@
+<div class="" *ngIf="!showForm">
+  <de-subscriptions (packageChanges)="setSelectedPackage($event)"></de-subscriptions>
+</div>
+
+
+<ng-container *ngIf="showForm">
+  <div class="elements-wrapper">
+    <form #f="ngForm" (submit)="submitForm(f)">
+      <input type="hidden" id="cm_status" name="cm_status" [value]="campaignFields.cm_status" />
+      <input type="hidden" id="campaign_id" name="campaign_id" [value]="campaignFields.campaign_id" />
+      <input type="hidden" id="lead_source" name="lead_source" [value]="campaignFields.lead_source" />
+      <input type="hidden" id="lead_source_detail" name="lead_source_detail"
+             [value]="campaignFields.lead_source_detail" />
+      <input type="hidden" id="utm_campaign" name="utm_campaign" [value]="campaignFields.utm_campaign" />
+      <input type="hidden" id="utm_campaign_id" name="utm_campaign_id" [value]="campaignFields.utm_campaign_id" />
+      <input type="hidden" id="utm_medium" name="utm_medium" [value]="campaignFields.utm_medium" />
+      <input type="hidden" id="utm_source" name="utm_source" [value]="campaignFields.utm_source" />
+      <input type="hidden" id="utm_language" name="utm_language" [value]="campaignFields.utm_language" />
+      <input type="hidden" id="utm_country" name="utm_country" [value]="campaignFields.utm_country" />
+      <input type="hidden" id="partner_code" name="partner_code" [value]="campaignFields.partner_code" />
+
+      <div class="row">
+        <div class="col-12">
+          <div class="row" *ngFor="let group of getGroups()">
+            <div class="col-12">
+              <h4  *ngIf="group.groupName" [innerHtml]="group.groupName"></h4>
+            </div>
+            <ng-template ngFor let-field [ngForOf]="getSectionByGroupId(group.groupId)" let-index="index"
+                         let-isFirst="first" let-isLast="last">
+
+              <div class="col-12 col-md-6 pt-1">
+                <ng-container *ngIf="field.controlCode === 'TXT'">
+                  <mat-form-field appearance="fill">
+                    <mat-label>
+                      {{field.questionText}} <small *ngIf="field.isMandatory" class="color-red">*</small>
+                    </mat-label>
+                    <input name="name_{{field.fieldValue}}" #nameControl="ngModel" matInput
+                           placeholder="{{field.questionText}}" [(ngModel)]="field.fieldValue"
+                           [ngClass]="{ 'is-invalid': (f.submitted && nameControl.invalid) || f.invalid }"
+                           (keydown)="controlTouched(field)" (focusout)="controlTouched(field)" />
+                  </mat-form-field>
+                  <div *ngIf="(f.submitted && isRequired(field)) || (field.invalid && isRequired(field))"
+                       class="invalid-feedback" [innerHtml]="field.messageText"></div>
+                </ng-container>
+
+                <ng-container *ngIf="field.controlCode === 'PWD'">
+                  <mat-form-field appearance="fill">
+                    <mat-label>
+                      {{field.questionText}} <small *ngIf="field.isMandatory" class="color-red">*</small>
+                    </mat-label>
+                    <input type="password" name="name_{{field.fieldValue}}" #nameControl="ngModel" matInput
+                           placeholder="{{field.questionText}}" [(ngModel)]="field.fieldValue"
+                           [ngClass]="{ 'is-invalid': (f.submitted && nameControl.invalid) || f.invalid }"
+                           (keydown)="controlTouched(field)" (focusout)="controlTouched(field)" />
+                  </mat-form-field>
+                  <div *ngIf="(f.submitted && isRequired(field)) || (field.invalid && isRequired(field))"
+                       class="invalid-feedback" [innerHtml]="field.messageText"></div>
+                </ng-container>
+
+
+                <ng-container *ngIf="field.controlCode === 'TA'">
+                  <mat-form-field appearance="fill">
+                    <mat-label>
+                      {{field.questionText}} <small *ngIf="field.isMandatory" class="color-red">*</small>
+                    </mat-label>
+                    <textarea name="name_{{field.fieldValue}}" #nameControl="ngModel" matInput
+                              placeholder="{{field.questionText}}" [(ngModel)]="field.fieldValue"
+                              [ngClass]="{ 'is-invalid': (f.submitted && nameControl.invalid) || f.invalid }"
+                              (keydown)="controlTouched(field)" (focusout)="controlTouched(field)"></textarea>
+                  </mat-form-field>
+                  <div *ngIf="(f.submitted && isRequired(field)) || (field.invalid && isRequired(field))"
+                       class="invalid-feedback" [innerHtml]="field.messageText"></div>
+                </ng-container>
+
+                <ng-container *ngIf="field.controlCode === 'DD'">
+                  <mat-form-field appearance="fill" (click)="controlTouched(field)">
+                    <mat-label>
+                      {{field.questionText}} <small *ngIf="field.isMandatory" class="color-red">*</small>
+                    </mat-label>
+                    <mat-select name="name_{{field.fieldValue}}" [(ngModel)]="field.fieldValue">
+                      <mat-option></mat-option>
+                      <mat-option *ngFor="let option of field.options" [value]="option.id" [innerHtml]="option.value">
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <ng-container *ngIf="isOtherOptionSelected(field)">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Type Here </mat-label>
+                      <input type="text" name="name_{{field.fieldValue}}" #nameControl="ngModel" matInput
+                             placeholder="Type here" [(ngModel)]="field.fieldOtherValue"
+                             [ngClass]="{ 'is-invalid': (f.submitted && nameControl.invalid) || f.invalid }" />
+                    </mat-form-field>
+                  </ng-container>
+
+                  <ng-container *ngIf="!isOtherOptionSelected(field);else otherOptionSelected">
+                    <div *ngIf="(f.submitted && isRequired(field)) || (field.invalid && isRequired(field))"
+                         class="invalid-feedback" [innerHtml]="field.messageText"></div>
+                  </ng-container>
+                  <ng-template #otherOptionSelected>
+                    <div *ngIf="(f.submitted && isOtherRequired(field)) || (field.otherInvalid && isOtherRequired(field))"
+                         class="invalid-feedback"> Other value is required</div>
+                  </ng-template>
+
+                </ng-container>
+
+                <ng-container *ngIf="field.controlCode === 'CNTA'">
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>
+                      {{field.questionText}} <small *ngIf="field.isMandatory" class="color-red">*</small>
+                    </mat-label>
+                    <mat-select name="name_{{field.fieldValue}}" [(ngModel)]="field.fieldValue"
+                                (selectionChange)="clearState()" (click)="controlTouched(field)">
+                      <mat-option></mat-option>
+                      <mat-option *ngFor="let option of field.options" [value]="option.id">{{option.name}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <div *ngIf="(f.submitted && isRequired(field)) || (field.invalid && isRequired(field))"
+                       class="invalid-feedback" [innerHtml]="field.messageText"></div>
+                </ng-container>
+
+                <ng-container *ngIf="field.controlCode === 'STA'">
+                  <mat-form-field appearance="fill">
+                    <mat-label>
+                      {{field.questionText}} <small *ngIf="field.isMandatory" class="color-red">*</small>
+                    </mat-label>
+                    <mat-select name="name_{{field.fieldValue}}" [(ngModel)]="field.fieldValue"
+                                (click)="controlTouched(field)">
+                      <mat-option></mat-option>
+                      <mat-option *ngFor="let option of getStates()" [value]="option.id">{{option.name}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <div *ngIf="(f.submitted && isRequired(field)) || (field.invalid && isRequired(field))"
+                       class="invalid-feedback" [innerHtml]="field.messageText"></div>
+                </ng-container>
+
+                <ng-container *ngIf="field.controlCode === 'RD'">
+                  <mat-radio-group name="name_{{field.fieldValue}}" class="example-radio-group" appearance="fill"
+                                   [(ngModel)]="field.fieldValue" (click)="controlTouched(field)">
+                    <mat-label class="mb-3 d-block">
+                      {{field.questionText}} <small *ngIf="field.isMandatory"
+                                                    class="color-red">*</small>
+                    </mat-label>
+                    <mat-radio-button class="d-block radio-list" *ngFor="let option of field.options"
+                                      [value]="option.id">{{option.value}}</mat-radio-button>
+                  </mat-radio-group>
+                  <div *ngIf="(f.submitted && isRequired(field)) || (field.invalid && isRequired(field))"
+                       class="invalid-feedback" [innerHtml]="field.messageText"></div>
+
+                  <ng-container *ngIf="isOtherOptionSelected(field)">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Type here </mat-label>
+                      <input type="text" name="name_{{field.fieldValue}}" #nameControl="ngModel" matInput
+                             placeholder="Type here" [(ngModel)]="field.fieldOtherValue"
+                             [ngClass]="{ 'is-invalid': (f.submitted && nameControl.invalid) || f.invalid }" />
+                    </mat-form-field>
+
+                    <ng-container *ngIf="!isOtherOptionSelected(field);else otherOptionSelected">
+                      <div *ngIf="(f.submitted && isRequired(field)) || (field.invalid && isRequired(field))"
+                           class="invalid-feedback" [innerHtml]="field.messageText"></div>
+                    </ng-container>
+                    <ng-template #otherOptionSelected>
+                      <div *ngIf="(f.submitted && isOtherRequired(field)) || (field.otherInvalid && isOtherRequired(field))"
+                           class="invalid-feedback"> Other value is required</div>
+                    </ng-template>
+                  </ng-container>
+
+
+                </ng-container>
+
+                <div *ngIf="field.controlCode === 'CB' && field.mappingField !== 'custom_1083'">
+
+                  <ng-container>
+                    <div [innerHtml]="field.questionText"></div>
+                    <mat-checkbox name="name_{{field}}" *ngFor="let option of field.options" [value]="option.id"
+                                  class="d-block" appearance="fill" [(ngModel)]="option.selected" (click)="controlTouched(field)">
+                      <div>{{option.value}}</div>
+                    </mat-checkbox>
+                    <div *ngIf="(f.submitted && isRequired(field)) || (field.invalid && isRequired(field))"
+                         class="invalid-feedback" [innerHtml]="field.messageText"></div>
+
+                    <!--<ng-container *ngIf="isOtherOptionSelected(field)">
+                  <mat-form-field appearance="fill">
+                    <mat-label>{{field.questionText}} </mat-label>
+                    <input type="text" name="name_{{field.fieldValue}}" #nameControl="ngModel" matInput placeholder="Type here" [(ngModel)]="field.fieldOtherValue" [ngClass]="{ 'is-invalid': (f.submitted && nameControl.invalid) || f.invalid }" />
+                  </mat-form-field>
+                </ng-container>
+
+                <ng-container *ngIf="!isOtherOptionSelected(field);else otherOptionSelected">
+                  <div *ngIf="(f.submitted && isRequired(field)) || (field.invalid && isRequired(field))" class="invalid-feedback" [innerHtml]="field.messageText"></div>
+                </ng-container>
+                <ng-template #otherOptionSelected>
+                  <div *ngIf="(f.submitted && isOtherRequired(field)) || (field.otherInvalid && isOtherRequired(field))" class="invalid-feedback"> Other value is required</div>
+                </ng-template>-->
+
+                  </ng-container>
+
+                </div>
+              </div>
+
+
+              <div class="col-12 col-md-6 pt-1" *ngIf="field.controlCode === 'PWD'">
+                <ng-container>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Confirm Password </mat-label>
+                    <input type="password" name="confirmPassword" #nameControl="ngModel" matInput
+                           placeholder="Confirm Password" [(ngModel)]="confirmPassword"
+                           [ngClass]="{ 'is-invalid': !(f.submitted && isMatching()) }" (keydown)="controlTouched(field)"
+                           (focusout)="controlTouched(field)" />
+                  </mat-form-field>
+                  <div *ngIf="f.submitted && !isMatching()" class="invalid-feedback">
+                    Password and Confirm password must
+                    be equal
+                  </div>
+
+                </ng-container>
+              </div>
+
+              <div class="col-12 pt-1" *ngIf="field.controlCode === 'AGT'">
+                <ng-container>
+                  <mat-form-field appearance="fill" *ngIf="getAGTTQuestion.questionText">
+                    <mat-label>
+                      {{getAGTTQuestion.questionText}} <small *ngIf="field.isMandatory"
+                                                              class="color-red">*</small>
+                    </mat-label>
+                    <textarea matInput readonly>{{getAGTTQuestion.optionText}}</textarea>
+                  </mat-form-field>
+
+                  <mat-checkbox name="name_{{field}}" *ngFor="let option of field.options" [value]="option.id"
+                                class="d-block" appearance="fill" [(ngModel)]="field.fieldValue" (click)="controlTouched(field)">
+                    <div [innerHtml]="getOptionText(option.value)"></div>
+                  </mat-checkbox>
+                </ng-container>
+
+                <div data-id="{{field.mappingField}}"
+                     *ngIf="field.controlCode === 'AGT' && (f.submitted && isRequired(field)) || (field.invalid && isRequired(field))"
+                     class="invalid-feedback mb-1">
+                  Please agree with terms & conditions to continue
+                </div>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="register button-background button-border button-text-color">
+        <ng-container *ngIf="isPaidEvent;else register">Continue</ng-container>
+        <ng-template #register> Register</ng-template>
+      </button>
+
+      <p class="italic"><span>*</span>required fields</p>
+
+    </form>
+
+  </div>
+</ng-container>

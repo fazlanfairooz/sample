@@ -1,0 +1,91 @@
+main{
+    background: $color1;
+    font-size:$fsize-sm;
+    button{
+        background: $color4;
+        padding:5px 10px;
+        &:hover{
+            background: $color3;
+         };
+    }
+
+}
+section, footer, nav {
+  @include gridwidth($containerWidth);
+
+}
+.sectionStyleOne, .footerStyleOne, .navStyleOne{
+    // background: $color1;
+}
+.sectionStyletwo .footerStyletwo, .navStyletwo{
+    // background: $color2;
+}
+.sectionWrapper, .footerWrapper, .navWrapper{
+    @include gridwidth($wrapperWidth);
+    padding:60px 0px;
+    margin: 0 auto;
+    p{
+        color:$color3;
+    }
+}
+.mainContainer{
+    @include flexElement(column,center,center);
+    @include gridwidth($containerWidth)
+}
+.mainWrapper{
+    @include flexElement(column,center,center);
+    @include gridwidth($wrapperWidth);
+}
+.video-player-full-width {
+  @include gridwidth($containerWidth);
+  height: auto !important;
+  background: #fff;
+  & > div {
+    ::ng-deep {
+      .Singlepage-ResourceCBox-Container {
+        position: relative;
+        width: 100%;
+      }
+    }
+  }
+}
+.flexContainer{
+    @include flexElement(row,center,center);
+    @include gridwidth($containerWidth);
+    flex-wrap: wrap;
+}
+.sectionAction-center{
+    @include gridwidth($containerWidth);
+}
+.flexContainer{
+    @include flexElement(row,center,center);
+    @include gridwidth($containerWidth);
+    flex-wrap: wrap;
+}
+.sectionAction-center{
+    @include gridwidth($containerWidth);
+    @include flexElement(row,center,center);
+    padding:30px 0px;
+
+}
+
+.video-player-full-width {
+    @include gridwidth($containerWidth);
+    height: auto !important;
+    background: #fff;
+    & > div {
+      width: 99%;
+      ::ng-deep {
+        .Singlepage-ResourceCBox-Container {
+          position: relative;
+          width: 100%;
+        }
+      }
+    }
+  }
+  
+  ::ng-deep{
+    .nextSseion{
+      position: absolute !important;
+    }
+  }

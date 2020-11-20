@@ -1,0 +1,31 @@
+<section class="sectionHeading header-background">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h5 class="content header-text-color">Save the Date</h5>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="card-background">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 center">
+          <div class="content color-primary">
+          <h1 style="margin-top: 25px;" class="color-white text-center">Make sure to save the date!</h1>
+          <h3 style="margin-top: 20px;" class="color-white text-center fs-h6" >{{eventDetails.startDate | date: 'MMMM d' }} - {{eventDetails.endDate | date: 'd' }}th
+            {{eventDetails.endDate | date: 'y' }}</h3>
+          <!-- Button code -->
+          <div class="row py-5 text-center">
+            <div class="col-12 mx-auto">
+              <button type="button" style="background: white; color: black;" class="btn" (click)="addToCalander()">Add to Calendar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+

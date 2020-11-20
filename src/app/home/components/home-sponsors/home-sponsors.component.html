@@ -1,0 +1,47 @@
+<div class="container-fluid py-3 header-background">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h5 *ngIf="label" class="fs-h5 header-text-color font-weight-bold">{{label}}</h5>
+        <h5 *ngIf="!label" class="fs-h5 header-text-color font-weight-bold">Expo and community partners</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="sponsor-homeDescript">{{description}}</p>
+<section class="container-fluid py-5 body-background home-sponsors">
+  <div class="container">
+    <div [ngClass]="recordPerRow == 3 ? 'grid-3-cols' : 'grid-4-cols'">
+      <button class="s27-card s27-card-company s27-card-focusable"
+      *ngFor="let sponsor of sponsorJson | slice:0:record; let i = index" (click)="getSponsor(sponsor)"
+        [id]="sponsor.name" title="{{sponsor.name}}">
+        <span class="s27-card-header" title="{{sponsor.name}}">
+          <span class="s27-card-image" *ngIf="sponsor.photoPath">
+            <img [ngClass]="getClassimg(sponsor.name)" [src]="sponsor.photoPath" alt="{{sponsor.name}} Customer Stories"
+              longdesc="#Customer Stories" />
+          </span>
+          <span class="s27-card-no-image" *ngIf="!sponsor.photoPath">{{sponsor.name}}</span>
+        </span>
+      </button>
+    </div>
+
+    <ng-container *ngIf="hasMore; else notLoadedYet">
+      <div *ngIf="loadMoreSponsor" class="row py-5 text-center">
+        <div class="col-12 mx-auto">
+          <button type="button" class="btn button-background button-text-color" title="{{getLabel('loadmoresponsors')}}"
+            (click)="seeallSponsor()">
+            {{getLabel('loadmoresponsors')}}
+          </button>
+        </div>
+      </div>
+
+    </ng-container>
+    <ng-template #notLoadedYet>
+      <div class="row py-3">
+        <div class="col-12 mx-auto">
+          No sponsors loaded yet
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</section>

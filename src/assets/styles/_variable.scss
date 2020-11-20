@@ -1,0 +1,117 @@
+$color1: rgb(0,0,0);
+$color2:red;
+$color3:rgb(255,255,255);
+$color4:#9000ff;
+$color5:#011d46;
+$color6: #0c1323;
+$color7:#003C6C;
+$color8:rgba(0,198,255,1);
+$color9:#061835;
+$color10:#737d8d;
+$wrapperWidth:93%;
+$containerWidth:100%;
+$fsize-xd: 60px;
+$fsize-xl: 50px;
+$fsize-xxl: 45px;
+$fsize-lg: 40px;
+$fsize-xlg: 35px;
+$fsize-lg: 30px;
+$fsize-sm: 25px;
+$fsize-xsm: 20px;
+$fsize-xs: 18px;
+$fsize-xxs: 14px;
+$font-bold: bold;
+$font-normal: normal;
+
+
+// New
+
+
+//$font-size: 16px;
+//$font-family-primary: 'Roboto', sans-serif;
+//$font-family-secondary: 'Poppins', 'Roboto', sans-serif;
+
+// Colors
+$color-1: #0f3f6f;
+$color-2: #33363B;
+
+$color-primary: #1b75bb;
+
+$color-body: #212529;
+$color-brand: $color-primary;
+$color-black: #303030;
+$color-white: #FFFFFF;
+$color-red: #d0021b;
+$color-green: #7ed321;
+
+$color-blue: $color-brand;
+
+$color-grey-light: #C0C0C0;
+$color-grey: #828282;
+$color-grey-dark: #2A2323;
+
+$color-border: rgba(#000, 0.125);
+$color-border-light: #ececec;
+$color-text: #333;
+$color-background: #F4F7FC;
+
+$color-brand-dark: darken($color-brand, 10%);
+$color-brand-light: lighten($color-brand, 10%);
+
+$sidebar-background: darken($color-brand, 30%);
+
+$background-gradient: linear-gradient(45deg, lighten($color-brand, 0%) 0%, lighten($color-brand, 20%) 100%);
+$background-gradient-dark: linear-gradient(45deg, darken($color-brand, 5%) 0%, lighten($color-brand, 5%) 100%);
+
+$header-background-gradient: linear-gradient(45deg, rgba($color-brand, 0.1) 0%, rgba($color-brand, 0.01) 100%);
+$header-background-gradient-dark: linear-gradient(45deg, rgba($color-brand, 0.2) 0%, rgba($color-brand, 0.02) 100%);
+
+$user-image-background-gradient: linear-gradient(45deg, rgba($color-brand, 0.6) 0%, rgba($color-brand, 0.3) 100%);
+
+$card-header-background-gradient: linear-gradient(45deg, rgba($sidebar-background, 1) 0%, rgba($sidebar-background, 0.9) 100%);
+
+$sticky-header-background-gradient: $header-background-gradient;
+
+// Colors END
+
+// Sizes
+
+$spacing: 20px;
+
+$button-border-radius: 40px;
+$border-width: 1px;
+$border-style: solid;
+$button-width: 140px;
+$button-height: 40px;
+
+$button-border-color: #ccc;
+
+$button-border-settings: $border-width $border-style transparent;
+
+$border-radius: 6px;
+
+$card-image-border-size: 6px;
+$card-user-image-size: 200px + $card-image-border-size;
+
+$event-list-item-image-height: 160px;
+
+$s27-drawer-header-height: $button-height + $spacing;
+
+$button-big-log-size: 160px;
+$icon-control-size: 190px;
+$icon-control-size-small: 100px;
+
+// Sizes END
+
+
+// Animations
+
+$animation-time: 200ms;
+$animation-timing-function: ease;
+$animation-settings: $animation-time $animation-timing-function;
+
+// Animations END
+
+
+// New END
+$user-image-small-size: $spacing * 2;

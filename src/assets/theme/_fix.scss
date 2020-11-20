@@ -1,0 +1,22 @@
+// consistent body spacing
+.s27-body-spacing{
+  padding: $spacing * 2;
+}
+
+// media query for the fixes
+
+@media only screen and (max-width: 991) {
+  .s27-body-spacing{
+    padding: $spacing + 5;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+}
+
+@media only screen and (max-width: 576px) {
+  .s27-body-spacing{
+    padding: $spacing;
+  }
+}

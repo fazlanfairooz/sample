@@ -1,0 +1,85 @@
+<div [ngSwitch]="n.name" *ngFor="let n of nonCustomModules; trackBy: trackByIndex">
+
+  <div [ngStyle]="{'background-image': 'url(' + regBannerUrl.image + ')'}" class="register-container"
+    *ngSwitchCase="'ng-signin'">
+    <div class="elements-wrapper">
+      <mat-card class="register-card authorize-card-background">
+        <ng-container *ngIf="!isNewUser">
+          <p class="intro-text">
+            Choose your <span class="cursor-pointer link-color" (click)="gotoLoginForm()">Sign In</span> method
+            below to complete the form.
+          </p>
+          <p *ngIf="eventData.conferenceId === 4160" class="intro-text">
+            In order to join, you will need to use your Microsoft Office login information.Username: your uID followed
+            by "@global.ual.com" (e.g., "u123456@global.ual.com")
+            Password: your United email password
+          </p>
+          <div class="social-login">
+            <a (click)="gotGithub()" class="social-login-btn auth button-background button-text-color cursor-pointer"
+              *ngIf="socialLogins.github">
+              <img src="../../../../assets/img/icons/github.png" alt="github " />
+              <span>Connect with GitHub</span>
+            </a>
+            <a (click)="goATD()" class="social-login-btn auth button-background button-text-color cursor-pointer"
+              *ngIf="socialLogins.atd">
+              <img style="width: 100px;" src="../../../../assets/img/icons/atd.png" alt="atd " />
+              <span>Connect with ATD</span>
+            </a>
+            <a (click)="gotLinkedIn()" class="social-login-btn auth button-background button-text-color cursor-pointer"
+              *ngIf="socialLogins.linkedin">
+              <img src="../../../../assets/img/icons/in.png" alt="linkedin " />
+              <span>Connect with Linkedin</span>
+            </a>
+            <a (click)="gotMSOffice()" class="social-login-btn auth button-background button-text-color cursor-pointer"
+              *ngIf="socialLogins.office365">
+              <img src="../../../../assets/img/icons/msoffice.png" alt="msoffice" />
+              <span>
+                Connect with Office 365
+              </span>
+            </a>
+
+            <a (click)="gotSAML()" class="social-login-btn auth button-background button-text-color button-border"
+              *ngIf="socialLogins.saml">
+              <!--<img src="https://s27platformmedia.azureedge.net/digitalevents/images/msoffice.png" alt="" />-->
+              <span class="button-text-color ml-2">Connect with OKTA</span>
+            </a>
+            <ng-container *ngIf="socialLogins.b2c">
+              <a (click)="gotoB2C()" class="social-login-btn auth button-background button-text-color button-border">
+                <span class="button-text-color ml-2">Sign in with eventcore</span>
+              </a>
+            </ng-container>
+
+
+            <!--<a (click)="gotoRegisterForm()" class="social-login-btn auth">
+    <img src="../../../../assets/img/icons/google.png" alt="" />
+    <span>
+      Connect with Google
+    </span>
+  </a>-->
+          </div>
+          <p class="disclaimer">
+            By associating your submission with your credentials for one of the account options above,
+            you will be able to access your customized information and agenda (and more) across
+            devices.
+          </p>
+          <p class="question link-color my-3">Don't have one of the accounts listed above?</p>
+          <p (click)="gotoRegisterForm()" class="create-uname link-color cursor-pointer">
+            Create a username and password to register.
+          </p>
+          <div class="divider"></div>
+          <p class="sign-in-text mb-3">
+            If you previously created your own username and password to register, enter them here and
+            click the ‘Sign in’ button.
+          </p>
+          <a class="social-login-btn button-background button-text-color" (click)="gotoLoginForm()">
+            <img src="https://s27platformmedia.azureedge.net/digitalevents/images/lock.png" alt="lock" />
+            <span>
+              Login
+            </span>
+          </a>
+        </ng-container>
+      </mat-card>
+    </div>
+  </div>
+
+</div>

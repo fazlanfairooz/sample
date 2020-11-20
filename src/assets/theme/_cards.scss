@@ -1,0 +1,41 @@
+@import '_variable.scss';
+
+.content_card-primary{
+    width:100%;
+    background: $color3;
+}
+.content_card-secondary{
+    width:100%;
+    background: $color7;
+}
+.content_CardHeader{
+    width:100%;
+    padding:10px;  
+}
+.content_CardBody-xaxis{
+    @include flexElement(row,center,space-between);
+    p{
+        color:$color2;
+        font-size:$fsize-sm;
+        font-weight:$font-bold;
+    }
+    span{
+        color:$color2;
+        font-size:$fsize-sm; 
+        font-weight:$font-normal;
+    }
+
+}
+.content_CardBody-yaxis{
+    @include flexElement(column,center,center);
+    p{
+        color:$color2;
+        font-size:$fsize-sm;
+        font-weight:$font-bold;
+    }
+    span{
+        color:$color2;
+        font-size:$fsize-sm; 
+        font-weight:$font-normal;
+    }
+}

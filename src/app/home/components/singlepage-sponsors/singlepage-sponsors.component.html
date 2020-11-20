@@ -1,0 +1,24 @@
+<div class="container-fluid py-3 header-background">
+  <div class="row">
+    <div class="col-12">
+      <h5 class="fs-h5 header-text-color">
+        Expo and community partners
+      </h5>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-icon py-5">
+  <div class="row sponsor-row position-relative">
+    <div class="col-2 col-sm-2 col-md-3 col-lg-3" *ngFor="let sponsor of sponsorJson">
+      <div class="sponsor">
+        <div class="edit-sponsor-button">
+          <span class="material-icons">edit</span>
+        </div>
+        <div class="image-wrapper">
+          <img class="w-100" [src]="sponsor.photoPath" [alt]="sponsor.title" title="{{sponsor.title}}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

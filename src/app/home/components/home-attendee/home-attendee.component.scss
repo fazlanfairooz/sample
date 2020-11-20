@@ -1,0 +1,96 @@
+.image-container {
+  width: 89%;
+  padding: 1.5em;
+  margin: 0 auto;
+}
+.sectionHeading {
+  .row {
+    margin: 0;
+  }
+  padding: 20px 0;
+  font-size: 24px;
+  line-height: 36px;
+}
+.network-lounge .userPic {
+  padding: 15px;
+  height: 224px;
+  margin-bottom: 60px;
+}
+.networkingloungepagewrapper #dvAttendeeDirectory .userPic {
+  width: 100% !important;
+  height: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  text-align: center !important;
+}
+#dvAttendeeDirectory .spaceImg-md {
+  font-size: 70px !important;
+}
+@media only screen and (min-width: 0) {
+  .align_items_center {
+    align-items: center !important;
+  }
+}
+@media only screen and (min-width: 0) {
+  .justify_content_center {
+    justify-content: center !important;
+  }
+}
+@media only screen and (min-width: 0) {
+  .d_flex {
+    display: flex !important;
+  }
+}
+@media only screen and (min-width: 0) {
+  .spaceImg-md {
+    width: 128px !important;
+    height: 128px !important;
+    border-radius: 50% !important;
+    overflow: hidden;
+    margin: 0 auto;
+    img {
+      width: 100%;
+    }
+  }
+}
+#attendees {
+  padding: 40px 0;
+}
+.userNames {
+  margin-top: 20px !important;
+}
+.userNames {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 5px;
+  text-align: center;
+}
+.userDescription {
+  margin-top: 20px !important;
+}
+.userDescription {
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+@media only screen and (min-width: 0) {
+  .userPic .userDescription {
+    text-align: center !important;
+    font-size: 19px !important;
+    line-height: 1.8rem !important;
+  }
+}
+#leaderboard-search-frm {
+  float: right;
+  position: relative;
+  bottom: 20px;
+}
+#leaderboard-search-frm input {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 45px 12px 45px;
+  color: white;
+  background-color: #061a33;
+  border: none;
+}

@@ -1,0 +1,188 @@
+
+.signin-container {
+  // background: url("../../../../assets/img/register-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-position: center;
+
+  h3 {
+
+    color: #333 !important;
+    font-size: 18px !important;
+    margin: 0 !important;
+    padding: 0 0 20px !important;
+    text-align: left !important;
+
+  }
+
+  h5 {
+
+    color: #666 !important;
+    font-size: 14px;
+    line-height: 18px;
+    margin: -15px 0 0;
+    padding: 0 0 40px;
+  }
+
+  .elements-wrapper {
+    max-width: 35%;
+    padding: 1rem 0;
+    @media only screen and (max-width: 991px) {
+      max-width: 50%;
+    }
+    @media only screen and (max-width: 767px) {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+    @media only screen and (max-width: 576px) {
+      max-width: 100%;
+    }
+
+    .signin-card-forgot {
+      height: 500px;;
+    }
+
+    .signin-card {
+      margin: 1rem 0 1rem 2rem;
+      padding: 2rem;
+      @media only screen and (max-width: 767px) {
+        margin: 0;
+      }
+      @media only screen and (max-width: 576px) {
+        margin: 1rem;
+      }
+
+      .intro-text {
+        font-size: 20px;
+        margin-top: 5px;
+      }
+
+      .social-login {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        @media only screen and (max-width: 576px) {
+          flex-direction: row;
+        }
+        @media only screen and (max-width: 400px) {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 0.5rem;
+          margin-bottom: 15px;
+        }
+      }
+
+      .social-login-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        letter-spacing: 0.5px;
+       /* box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);*/
+        border: none;
+        border-radius: 2px;
+        height: 40px;
+        line-height: normal;
+        padding: 0 8px;
+        margin-bottom: 10px;
+        cursor: pointer;
+
+
+        &.no-width {
+          width: 45%;
+          @media only screen and (max-width: 576px) {
+            width: 100%;
+          }
+        }
+
+        &:disabled {
+          background: #ccc;
+        }
+
+        img {
+          width: 24px;
+        }
+
+        @media only screen and (max-width: 576px) {
+          &.auth {
+            margin-right: 0.5rem;
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+        @media only screen and (max-width: 400px) {
+          &.auth {
+            margin: 0 !important;
+          }
+        }
+      }
+
+      .divider {
+        position: relative;
+        margin: 1rem 0;
+        text-align: center;
+        color: #c0c0c0;
+
+        &:before,
+        &:after {
+          content: "";
+          content: "";
+          position: absolute;
+          height: 1px;
+          background: #c0c0c0;
+          width: 47%;
+          top: 50%;
+        }
+
+        &:before {
+          left: 0;
+        }
+
+        &:after {
+          right: 0;
+        }
+      }
+
+      .form-content {
+        mat-form-field,
+        input {
+          width: 100%;
+        }
+
+        .button-wrapper {
+          display: inherit;
+          justify-content: space-between;
+          @media only screen and (max-width: 576px) {
+            flex-direction: column;
+            justify-content: unset;
+          }
+        }
+      }
+
+      .recaptcha {
+        font-size: 8px;
+        color: rgb(87, 87, 87);
+
+        span {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
+
+.signin-container-banner {
+  /*position: absolute;
+  width:90%;*/
+  /*top:10%;*/
+
+
+  @media only screen and (max-width: 767px) {
+    min-height: unset;
+    width: 100%;
+  }
+}

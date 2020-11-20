@@ -1,0 +1,111 @@
+.playbutton {
+  font-size: 34px;
+  margin: 0px 130px 0px 0px;
+  cursor: pointer;
+}
+
+.fs-100 {
+  font-size: 100px !important;
+}
+
+.agendaHeading {
+  padding: 0.5rem 1rem 0.5rem 2rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.speaker-row {
+  border-bottom: 1px solid #464646;
+
+  &:last-child {
+    border: none;
+  }
+
+  .cp {
+    cursor: pointer;
+  }
+
+  .speaker-img {
+    max-width: 60px;
+    min-width: 60px;
+    max-height: 60px;
+
+    @media (max-width: 576px) {
+      max-width: 40px;
+      min-width: 40px;
+      max-height: 40px;
+    }
+  }
+}
+
+.filter-togglebar {
+  cursor: pointer;
+}
+
+.filter-wrapper {
+  overflow-y: auto;
+}
+
+.agenda-items-wrapper {
+  background: #ffffff;
+
+  .rail {
+    background: repeating-linear-gradient(135deg,
+        #efefef,
+        #efefef 5px,
+        #e5e5e5 6px,
+        #e5e5e5 7px);
+    background-size: 0.5em 0.5em;
+
+    .item {
+      background: #fff;
+
+      .play-circle {
+        cursor: pointer;
+        font-size: 35px;
+      }
+
+      .description {
+        line-height: 1.3;
+        font-size: 14px;
+      }
+    }
+  }
+
+
+  ::ng-deep {
+    .owl-theme .owl-nav {
+      margin-top: 10px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+
+      .owl-prev,
+      .owl-next {
+        color: #4b4646;
+        font-size: 35px;
+        margin: 5px;
+        padding: 0 5px;
+        background: rgba(210, 210, 210, 0.4);
+        cursor: pointer;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        pointer-events: all;
+
+        &:hover {
+          color: #4b4646 !important;
+          background: rgba(210, 210, 210, 0.4) !important;
+        }
+
+        &.disabled {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

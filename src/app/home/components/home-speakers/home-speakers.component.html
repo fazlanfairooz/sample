@@ -1,0 +1,102 @@
+<div class="container-fluid py-3 header-background">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 style="display: none;">{{label}}</h2>
+        <h3 style="display: none;">{{label}}</h3>
+        <h4 style="display: none;">{{label}}</h4>
+        <h5 *ngIf="label" class="fs-h5 header-text-color font-weight-bold">{{label}}</h5>
+        <h5 *ngIf="!label" class="fs-h5 header-text-color font-weight-bold">Our Speakers</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="speaker-homeDescript">{{description}}</p>
+<div class="speaker-wrapper">
+  <div class="container-fluid p-0">
+    <mat-drawer-container class="speaker-container" autosize>
+      <mat-drawer class="drawer-background" #matDrawer mode="side" opened="{{isOpened}}" [position]="'end'">
+
+
+        <div style="padding: 10px;" class="close-btn body-text-color header-background"
+          (click)="isOpened=false; clearSpeaker()">
+          <span class="material-icons body-text-color"
+            style="font-size: 35px;text-shadow: 0 0 15px #bdb5b5; cursor: pointer;">
+            highlight_off
+          </span>
+        </div>
+
+
+        <speaker-detail-drawer [speaker]="selectedSpeaker" [speakers]="drawyerspeakerJson"></speaker-detail-drawer>
+      </mat-drawer>
+    </mat-drawer-container>
+    <div class="container">
+      <div class="row pt-4">
+        <div class="col-12 col-sm-12 col-md-6" [ngClass]="recordPerRow == 3 ? 'col-lg-4' : 'col-lg-6'"
+          *ngFor="let spk of speakerJson;" (click)="showDetail(spk)"
+          [ngStyle]="{'opacity':isOpened ? '0.5' : '1.0' }">
+          <mat-card class="speaker-card card-background"
+            [ngClass]="{'active-home-speaker': spk.id === selectedSpeaker.id}">
+            <!--<div class="row">
+              <div class="col-4 col-sm-4 col-md-4 col-lg-4">
+                <ng-container *ngIf="spk.photoPath;else noPhoto">
+                  <img class="border-2 border-color-brand rounded-circle m-0 w-100" mat-card-image [src]="spk.photoPath"
+                       alt="{{spk.firstName}}" title="{{spk.firstName}} {{spk.lastName}}">
+                </ng-container>
+                <ng-template #noPhoto>
+                  <div class="body-text-color rounded-circle no-photo fs-h4 text-capitalize">
+                    {{spk.firstName | letterForNoImage}} {{spk.lastName | letterForNoImage}}
+                  </div>
+                </ng-template>
+              </div>
+              <div class="col-8 col-sm-8 col-md-8 col-lg-8 d-flex flex-column justify-content-center speaker-details">
+                <p class="mb-0 color-primary fs-large mb-2" title="{{spk.firstName}} {{spk.lastName}}"> {{spk.firstName}} {{spk.lastName}}</p>
+                <p class="mb-0 body-text-color" title="{{spk.title}}">{{spk.title}}</p>
+                <p class="mb-0 body-text-color" title="{{spk.company}}">{{spk.company}}</p>
+              </div>
+            </div>-->
+            <button class="d-flex align-items-center btnAccesibility" tabindex="0">
+              <div>
+                <ng-container *ngIf="spk.photoPath;else noPhoto">
+                  <img class="border-2 border-color-brand rounded-circle m-0 w-100" mat-card-image [src]="spk.photoPath"
+                    alt="Image of {{spk.firstName}} {{spk.lastName}}" title="{{spk.firstName}} {{spk.lastName}}">
+                </ng-container>
+                <ng-template #noPhoto>
+                  <div class="body-text-color rounded-circle no-photo fs-h4 text-capitalize">
+                    {{spk.firstName | letterForNoImage}} {{spk.lastName | letterForNoImage}}
+                  </div>
+                </ng-template>
+              </div>
+              <div class="speaker-details text-left pl-3">
+                <p class="mb-0 color-primary fs-large mb-2" title="{{spk.firstName}} {{spk.lastName}} "><strong>
+                    {{spk.firstName}} {{spk.lastName}}</strong></p>
+                <p class="mb-0 body-text-color" title="{{spk.title}}">{{spk.title}}</p>
+                <p class="mb-0 body-text-color" title="{{spk.company}} Company"><b>{{spk.company}}</b></p>
+              </div>
+            </button>
+
+          </mat-card>
+        </div>
+      </div>
+      <ng-container *ngIf="hasMore; else notLoadedYet">
+        <div class="row py-5 text-center">
+          <div class="col-12 mx-auto">
+            <button type="button" class="btn button-background button-text-color btnAccesibility"
+              title="{{getLabel('loadmorespeakers')}}" (click)="redirectToPages('speakers')">
+              {{getLabel('loadmorespeakers')}}
+            </button>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #notLoadedYet>
+        <div class="row py-5">
+          <div class="col-12 mx-auto">
+            No speakers loaded yet
+          </div>
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+</div>

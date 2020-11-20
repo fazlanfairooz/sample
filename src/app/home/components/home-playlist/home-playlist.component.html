@@ -1,0 +1,61 @@
+<section class="container-fluid p-0 body-background position-relative newBg position-relative">
+  <div class="row">
+    <div class="col">
+      <ng-container *ngIf="isRealComm">
+        <ng-container *ngIf="showChatQnASection">
+          <span class="openChat" (click)="openChat()">
+            <img src="../../../../assets/img/icons/chat.svg">
+          </span>
+        </ng-container>
+      </ng-container>
+
+      <div class="playlist-briefcase">
+        <div id="s27_embed_pp" class="position-relative" style="z-index:1"></div>
+      </div>
+    </div>
+
+
+    <ng-container *ngIf="isRealComm">
+      <div class="col-md-4 cht-sm-none" *ngIf="showChatQnASection" [ngClass]="{'col-md-4': isChanged, 'd-none': !isChanged}">
+        <aside class="chat-panel">
+          <span class="closeChat" (click)="closeChat()">
+            <img src="../../../../assets/img/icons/close.svg" alt="closeChat">
+          </span>
+
+          <ul class="nav chat-bg" data-tabs="tabs">
+            <ng-container *ngIf="enableChat">
+              <li class="nav-item" *ngIf="enableChat">
+                <a class="nav-link" href="#" data-toggle="tab" (click)="mode = 'chat-wall'"
+                   [class]="{'active': mode === 'chat-wall'}">
+                  Chat
+                  <div class="ripple-container"></div>
+                </a>
+              </li>
+            </ng-container>
+            <ng-container *ngIf="enableChat">
+              <li class="nav-item" *ngIf="enableModeration">
+                <a class="nav-link" href="#" data-toggle="tab" (click)="mode = 'moderated-q-a'"
+                   [ngClass]="{'active': mode === 'moderated-q-a'}">
+                  Moderated Q&A
+                  <div class="ripple-container"></div>
+                </a>
+              </li>
+            </ng-container>
+          </ul>
+
+          <section>
+            <ng-container *ngIf="enableChat">
+              <chat-wall-poll [userIsModerator]="userIsModerator" *ngIf="mode === 'chat-wall'" [sectionId]="13">
+              </chat-wall-poll>
+            </ng-container>
+            <!--<ng-container *ngIf="enableModeration">
+              <moderatedQA [userIsModerator]="userIsModerator" *ngIf="mode === 'moderated-q-a'" [sectionId]="13">
+              </moderatedQA>
+            </ng-container>-->
+          </section>
+
+        </aside>
+      </div>
+    </ng-container>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+@mixin imgProcessor($width,$height, $boder-style,$brderwidth,$borderColor, $borderRadius) {
+    width:$width;
+    height:$height;
+    border-style:  $boder-style;
+    border-width:$brderwidth;
+    border-color: $borderColor;
+    border-radius: $borderRadius;
+}
+.spaceImg_circle_xd{
+    @include flexElement(column,center,center);
+    @include imgProcessor(128px,128px,solid,1px,$color4,50%);
+}
+.spaceImg_circle_lg{
+    @include flexElement(column,center,center);
+    @include imgProcessor(64px,64px,solid,1px,$color4,50%);
+}
+.spaceImg_circle_md{
+    @include flexElement(column,center,center);
+    @include imgProcessor(32px,32px,solid,1px,transparent,50%)
+}
+.spaceImg_circle_sm{
+    @include flexElement(column,center,center);
+    @include imgProcessor(24px,24px,solid,1px,transparent,50%)
+}
+.spaceImg_circle_xs{
+    @include flexElement(column,center,center);
+    @include imgProcessor(16px,16px,solid,1px,transparent,50%)
+}
+.spaceImg_square_xd{
+    @include flexElement(column,center,center);
+    @include imgProcessor(128px,128px,solid,1px,$color4,6px);
+}
+.spaceImg_square_lg{
+    @include flexElement(column,center,center);
+    @include imgProcessor(64px,64px,solid,1px,$color4,6px);
+}
+.spaceImg_square_md{
+    @include flexElement(column,center,center);
+    @include imgProcessor(32px,32px,solid,1px,transparent,6px)
+}
+.spaceImg_square_sm{
+    @include flexElement(column,center,center);
+    @include imgProcessor(24px,24px,solid,1px,transparent,6px)
+}
+.spaceImg_square_xs{
+    @include flexElement(column,center,center);
+    @include imgProcessor(16px,16px,solid,1px,transparent,6px)
+}
+.spaceImg_circle_xd img, .spaceImg_circle_lg img, .spaceImg_circle_sm img, .spaceImg_circle_xs img,
+.spaceImg_square_xd img, .spaceImg_square_lg img, .spaceImg_square_sm img, .spaceImg_square_xs img{
+   width:100% !important;
+   height:100% !important;
+}

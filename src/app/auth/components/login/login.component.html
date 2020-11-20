@@ -1,0 +1,210 @@
+<!--<div [ngSwitch]="n.name" *ngFor="let n of nonCustomModules; trackBy: trackByIndex">-->
+<!--<div *ngSwitchCase="'ng-banner'">
+    <custom-banner [banner]="n.banner"></custom-banner>
+  </div>-->
+
+<ng-container *ngIf="!userModel">
+  <div [ngClass]="isBannerAvailable==true ? 'signin-container signin-container-banner' : 'signin-container'"
+    [style.backgroundImage]="'url('+ banner?.banner?.image +')'">
+    <div class="elements-wrapper">
+      <mat-card class="signin-card authorize-card-background">
+        <h1 *ngIf="!header">Sign in</h1>
+        <ng-container *ngIf="isSignupPublished">
+          <p class="intro-text" *ngIf="socialLogins.social27 && hideLable">
+            New user? <span class="cursor-pointer link-color" (click)="gotoSignup()" tabindex="0" role="link"
+              (keypress)="gotoSignup()">
+              <span [innerHtml]="getSignupLabel('Sign Up')">Sign Up</span>
+            </span>
+          </p>
+        </ng-container>
+
+        <div *ngIf="header" [innerHtml]="header"></div>
+
+        <div class="divider d-flex" *ngIf="socialLogins && socialLogins.length >0">Or</div>
+        <div class="social-login">
+          <a class="social-login-btn auth button-background button-text-color button-border" *ngIf="socialLogins.github"
+            (click)="gotGithub()">
+            <img src="https://s27platformmedia.azureedge.net/digitalevents/images/github.png" alt="" />
+            <span class="button-text-color ml-2">Connect with Github</span>
+          </a>
+          <ng-container>
+
+            <div class="mt-2 mb-2 h-50vh" *ngIf="isUnAuthorized">
+              <div class="alert alert-warning">
+                <strong>Hi , </strong> it looks like you are not registered for this event. To register, please visit <a
+                  href="https://virtualconference.td.org/registration"
+                  target="_blank">https://virtualconference.td.org/registration</a>
+              </div>
+            </div>
+
+            <ng-container *ngIf="isUnAuthorizedShrm">
+              <div class="mt-2 mb-2 h-50vh">
+                <div class="alert alert-warning">
+                  <h3>Hi there!</h3>
+                  Thank you for your interest in HR Reimagined: <span
+                    style="text-transform: uppercase">{{eventData?.eventUrlName}}</span>.
+                  Access is limited to registered attendees only.
+                  If you’d like to register, you can do so <a target="_blank" href="https://login.shrm.org/">here</a>.
+                </div>
+              </div>
+            </ng-container>
+
+            <a class="social-login-btn auth button-background button-text-color button-border" (click)="goATD()"
+              *ngIf="socialLogins.atd">
+              <img src="../../../../assets/img/icons/atd.png" alt="atd" />
+              <span class="button-text-color ml-2">Connect with ATD</span>
+            </a>
+          </ng-container>
+
+          <a class="social-login-btn auth button-background button-text-color button-border" aria-disabled="true"
+            *ngIf="socialLogins.linkedin">
+            <img src="https://s27platformmedia.azureedge.net/digitalevents/images/in.png" alt="linkedin " />
+            <span class="button-text-color ml-2">Connect with Linkedin</span>
+          </a>
+
+          <a (click)="gotMSOffice()" class="social-login-btn auth button-background button-text-color button-border"
+            *ngIf="socialLogins.office365 && !isms1es">
+            <img src="https://s27platformmedia.azureedge.net/digitalevents/images/msoffice.png" alt="office365" />
+            <span class="button-text-color ml-2">Connect with Office 365</span>
+          </a>
+
+          <div *ngIf="socialLogins.office365 && isms1es &&!openForm">
+            <b class="intro-text ng-star-inserted">
+              Microsoft employee, please </b>
+            <a (click)="gotMSOffice()" class="social-login-btn auth button-background button-text-color button-border"
+              *ngIf="socialLogins.office365">
+              <img src="https://s27platformmedia.azureedge.net/digitalevents/images/msoffice.png" alt="office365" />
+              <span class="button-text-color ml-2">Sign in</span>
+            </a>
+          </div>
+
+          <a (click)="gotSAML()" class="social-login-btn auth button-background button-text-color button-border"
+            *ngIf="socialLogins.saml">
+            <span class="button-text-color ml-2">{{getLabel('connectwithokta')}}</span>
+          </a>
+
+          <ng-container *ngIf="socialLogins.uli">
+            <a (click)="gotoULI()" class="social-login-btn auth button-background button-text-color button-border">
+              <span class="button-text-color ml-2">Sign In with your ULI Account</span>
+            </a>
+          </ng-container>
+
+          <ng-container *ngIf="socialLogins.b2c">
+            <a (click)="gotoB2C()" class="social-login-btn auth button-background button-text-color button-border">
+              <span class="button-text-color ml-2" [innerHtml]="getLabel('connecteventcore')">Sign In with
+                eventcore</span>
+            </a>
+          </ng-container>
+
+
+        </div>
+
+        <div class="form-content d-flex py-2" *ngIf="socialLogins.social27 && (!isms1es || openForm)">
+          <form [formGroup]="loginForm" class="w-100" (submit)="onSubmit()">
+            <div class="row">
+              <div class="col-12 pt-1">
+                <mat-form-field appearance="fill">
+                  <mat-label>Email address</mat-label>
+                  <input matInput tabindex="0" type="email" autofocus placeholder="Email" maxlength="250" #email
+                    #emailFocus formControlName="email" />
+                  <mat-error *ngIf="getControl('email')?.errors?.required">Required</mat-error>
+                  <mat-error *ngIf="getControl('email')?.errors?.email">Invalid email</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-12 pt-1">
+                <mat-form-field appearance="fill">
+                  <mat-label>{{getLabel('lblPassword')}}</mat-label>
+                  <input type="password" tabindex="0" matInput placeholder="{{getLabel('lblPassword')}}" #passwordFocus
+                    #password maxlength="50" formControlName="password" />
+                  <mat-error>Required</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="text-center terms"
+              *ngIf="eventData.conferenceId === colonialsWeekend || eventData.conferenceId === clioCon2020 || eventData.conferenceId === aasp ||  eventData.conferenceId === mefforum">
+              <p *ngIf="eventData.conferenceId === colonialsWeekend">Subject to Social27 <a class="color-primary"
+                  href="https://s27platformmedia.azureedge.net/digitalevents/CW2020/S27%20Terms%20of%20Use.pdf"
+                  target="_blank">Terms of Use</a></p>
+            
+              <mat-checkbox [(ngModel)]="isChecked" formControlName="terms"  *ngIf="eventData.conferenceId === mefforum">
+                By participating in the MEF Infinite Edge Series, I agree to allow MEF Forum to: collect, store, and
+                process my personal data; to share it with the Series Sponsors; and to continue to email me details
+                about upcoming events, all in accordance with the
+                <a class="color-primary" href="https://www.mef.net/privacy-policy/" target="_blank">
+                  MEF Privacy Policy.
+                </a>When I log in, I understand that the
+                <a class="color-primary" href="https://www.Social27.com" target="_blank">
+                  Social27.com
+                </a>
+                platform will display my personal details to enable other attendees, event sponsors, and MEF to connect
+                with me online.*
+              </mat-checkbox>
+              <mat-error *ngIf="showError">Required</mat-error>
+
+            </div>
+
+            <div class="button-wrapper pt-2">
+              <button *ngIf="needCheck(); else loginSection" [disabled]="!isChecked" type="submit" tabindex="0"
+                class="btn social-login-btn no-width d-inline button-background button-text-color button-border">
+                Login
+              </button>
+              <ng-template #loginSection>
+                <button *ngIf="eventData.conferenceId !== clioCon2020" type="submit" tabindex="0"
+                  class="btn social-login-btn no-width d-inline button-background button-text-color button-border">
+                  <span [innerHtml]="getLabel('lblLogin')"> Login</span>
+                </button>
+              </ng-template>
+              <button class="btn social-login-btn no-width pull-right button-background button-text-color button-border"
+                tabindex="0" (click)="forgotPassword()" *ngIf="forgotpassword?.isShowing !== false && !isAamc()">
+                <span [innerHtml]="getLabel('lblForgotPassword')">Forgot Password?</span>
+              </button>
+              <button class="btn social-login-btn no-width pull-right button-background button-text-color button-border"
+                tabindex="0" (click)="forgotPassword()" *ngIf="forgotpassword?.isShowing !== false && isAamc()">
+                <span>Forgot Confirmation Number?</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div *ngIf="isms1es&&!openForm">
+          <b class="intro-text ng-star-inserted">
+            Non Microsoft employee, please </b>
+          <div class="button-wrapper pt-2">
+            <button class="btn social-login-btn no-width d-inline button-background button-text-color button-border"
+              (click)="gotoSignup()">Create an account
+            </button>
+            <button (click)="openForm = true;"
+              class="btn social-login-btn no-width pull-right button-background button-text-color button-border">
+              Sign in
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="footer" [innerHtml]="footer"></div>
+
+        <!-- add the terms check  -->
+        <div class="text-center terms"
+          *ngIf="eventData.conferenceId === colonialsWeekend || eventData.conferenceId === clioCon2020 || eventData.conferenceId === aasp ||  eventData.conferenceId === mefforum">
+          <p *ngIf="eventData.conferenceId === colonialsWeekend">Subject to Social27 <a class="color-primary"
+              href="https://s27platformmedia.azureedge.net/digitalevents/CW2020/S27%20Terms%20of%20Use.pdf"
+              target="_blank">Terms of Use</a></p>
+          <mat-checkbox [(ngModel)]="isChecked" *ngIf="eventData.conferenceId === clioCon2020">By participating in the
+            Clio Cloud Conference you
+            are agreeing to our<a class="color-primary" href="https://cliocloudconference.com/tos/" target="_blank">
+              Terms, Conditions, and Cancellation Policy.</a></mat-checkbox>
+
+          <mat-checkbox [(ngModel)]="isChecked" *ngIf="eventData.conferenceId === aasp">Check box to accept <a
+              class="color-primary" href="https://e1cdn.social27.com/digitalevents/AASP/AASP_Privacy-Policy-2020.pdf"
+              target="_blank">Privacy Policy.</a>
+          </mat-checkbox>
+        </div>
+        <!-- <p class="recaptcha">
+          Protected by re<span>CAPTCHA</span> and Subject to the Google
+          <span class="primary">Privacy Policy</span> and <span class="link-color">Terms of Service.</span>
+        </p> -->
+      </mat-card>
+    </div>
+  </div>
+</ng-container>
+<!--</div>-->

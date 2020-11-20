@@ -1,0 +1,30 @@
+.layout-wrapper {
+  min-height: 100vh;
+  margin-left: 90px;
+  transition: 0.3s ease;
+  // height: 100%;
+
+  &.open {
+    margin-left: 250px;
+  }
+}
+
+@media (max-width: 991px) {
+  .layout-wrapper {
+    &.open {
+      margin-left: 25%;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .layout-wrapper {
+    margin-left: 0;
+    margin-top: 88px;
+    &.open {
+      margin-left: 0
+    }
+  }
+}
+
+/* cookee consent box custom */

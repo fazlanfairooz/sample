@@ -1,0 +1,16 @@
+.banner_Container{
+    width:$containerWidth;
+    height: calc(100vh - 145px);
+    @include flexElement(column,center,center);
+    padding:85px 0px;
+}
+.banner_wrapper{
+    width:$wrapperWidth;
+    height: calc(100vh - 145px);
+    @include flexElement(row,center,space-between);
+}
+.banner_Left_item img, .banner_right_item img{
+    @include flexElement(column,center,center);
+    width:auto;
+    height: 60%;
+}

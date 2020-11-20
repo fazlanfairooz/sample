@@ -1,0 +1,53 @@
+<ngx-spinner name="appLoading" bdColor="rgba(51,51,51,0.8)" size="large" color="#00c6ff" type="ball-scale-multiple"
+             [fullScreen]="true">
+</ngx-spinner>
+
+<ngx-spinner name="primary" bdColor="rgba(51,51,51,0.8)" size="large" color="#00c6ff" type="ball-scale-multiple"
+             [fullScreen]="true">
+</ngx-spinner>
+
+<app-navbar (onProfileClick)="toggleProfileDrawer($event)" (showNotifications)="toggleNotificationsDrawer($event)"
+            (onCloseClick)="toggleBodyClass($event)"></app-navbar>
+
+<app-profile *ngIf="conferenceId && isProfileVisible" (clickedClose)="toggleProfileDrawer($event)"
+             [clickedProfile]="isProfileVisible"></app-profile>
+
+<journey *ngIf="showMyAgenda"></journey>
+<de-notifications (closeNotifications)="toggleNotificationsDrawer(false)" [showNotifications]="isNotificationsVisible">
+</de-notifications>
+
+<de-other-profile *ngIf="toggleOtherprofile" [userId]="selectedUserId"></de-other-profile>
+
+<ng-container *ngIf="isMsEvent;else notMsEvent">
+  <new-round-table-create *ngIf="isRoundtableCreate"></new-round-table-create>
+</ng-container>
+
+<ng-template #notMsEvent>
+  <round-table-create *ngIf="conferenceId && isRoundtableCreate"></round-table-create>
+</ng-template>
+
+<round-table-view *ngIf="isRoundtableView"></round-table-view>
+
+<de-round-table-dialog *ngIf="isRoundtableAgoraDialog"></de-round-table-dialog>
+
+<de-round-table-zoomdialog *ngIf="isRoundTableZoomDialog"></de-round-table-zoomdialog>
+
+<custom-schedule2 *ngIf="isScheduleView"></custom-schedule2>
+
+<my-schedule-detail *ngIf="isScheduleBoothView && !isScheduleView && !isRoundtableView && !isRoundtableCreate"></my-schedule-detail>
+
+<personal-schedule *ngIf="isSchedulePersonalView && !isScheduleView && !isRoundtableView && !isRoundtableCreate"></personal-schedule>
+
+<app-realcomm-sponsors *ngIf="isToggleRealcommSponsors"></app-realcomm-sponsors>
+
+<de-poster-details *ngIf="togglePosterDetail" [posterId]="posterId" [serialId]="posterSerial"></de-poster-details>
+
+<div class="layout-wrapper" [ngClass]="{'open': isSidebarActive}">
+  <router-outlet></router-outlet>
+</div>
+
+
+<!--<ng-container *ngIf="isMicrosoftEvent">
+  <ms-cookie-consent></ms-cookie-consent>
+</ng-container>-->
+<footer-block></footer-block>
