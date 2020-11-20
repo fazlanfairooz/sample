@@ -126,15 +126,6 @@ export class SignupComponent extends BaseComponent implements OnInit {
         var body = components.find(e => e.name == 'ng-signin');
         this.socialLogins = body["socialLogins"] as { key: string, val: boolean }[];
         var trueVals = [];
-        if (this.socialLogins['social27'] === undefined || this.socialLogins['social27'] === true) {
-          trueVals.push(true);
-        }
-
-        Object.keys(this.socialLogins).forEach(k => {
-          if (this.socialLogins[k] && k !== 'social27') {
-            trueVals.push(true);
-          }
-        });
 
         if (trueVals.length <= 1) {
           this.router.navigateByUrl(`/${this.eventData.eventUrlName}/auth/register`);

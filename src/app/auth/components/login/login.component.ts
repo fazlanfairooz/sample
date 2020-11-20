@@ -187,9 +187,6 @@ export class LoginComponent extends BaseComponent implements OnInit, OnDestroy {
 
           this.socialLogins = social['socialLogins'];
           this.forgotpassword = social['forgotpassword'];
-          if (this.socialLogins.social27 === undefined) {
-            this.socialLogins.social27 = true;
-          }
           this.social = social;
 
 

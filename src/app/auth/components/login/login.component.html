@@ -10,12 +10,7 @@
       <mat-card class="signin-card authorize-card-background">
         <h1 *ngIf="!header">Sign in</h1>
         <ng-container *ngIf="isSignupPublished">
-          <p class="intro-text" *ngIf="socialLogins.social27 && hideLable">
-            New user? <span class="cursor-pointer link-color" (click)="gotoSignup()" tabindex="0" role="link"
-              (keypress)="gotoSignup()">
-              <span [innerHtml]="getSignupLabel('Sign Up')">Sign Up</span>
-            </span>
-          </p>
+
         </ng-container>
 
         <div *ngIf="header" [innerHtml]="header"></div>
@@ -99,7 +94,7 @@
 
         </div>
 
-        <div class="form-content d-flex py-2" *ngIf="socialLogins.social27 && (!isms1es || openForm)">
+        <div class="form-content d-flex py-2">
           <form [formGroup]="loginForm" class="w-100" (submit)="onSubmit()">
             <div class="row">
               <div class="col-12 pt-1">
@@ -122,11 +117,7 @@
             </div>
 
             <div class="text-center terms"
-              *ngIf="eventData.conferenceId === colonialsWeekend || eventData.conferenceId === clioCon2020 || eventData.conferenceId === aasp ||  eventData.conferenceId === mefforum">
-              <p *ngIf="eventData.conferenceId === colonialsWeekend">Subject to Social27 <a class="color-primary"
-                  href="https://s27platformmedia.azureedge.net/digitalevents/CW2020/S27%20Terms%20of%20Use.pdf"
-                  target="_blank">Terms of Use</a></p>
-            
+              *ngIf="eventData.conferenceId === colonialsWeekend || eventData.conferenceId === clioCon2020 || eventData.conferenceId === aasp ||  eventData.conferenceId === mefforum">           
               <mat-checkbox [(ngModel)]="isChecked" formControlName="terms"  *ngIf="eventData.conferenceId === mefforum">
                 By participating in the MEF Infinite Edge Series, I agree to allow MEF Forum to: collect, store, and
                 process my personal data; to share it with the Series Sponsors; and to continue to email me details
@@ -134,9 +125,6 @@
                 <a class="color-primary" href="https://www.mef.net/privacy-policy/" target="_blank">
                   MEF Privacy Policy.
                 </a>When I log in, I understand that the
-                <a class="color-primary" href="https://www.Social27.com" target="_blank">
-                  Social27.com
-                </a>
                 platform will display my personal details to enable other attendees, event sponsors, and MEF to connect
                 with me online.*
               </mat-checkbox>
@@ -186,18 +174,10 @@
         <!-- add the terms check  -->
         <div class="text-center terms"
           *ngIf="eventData.conferenceId === colonialsWeekend || eventData.conferenceId === clioCon2020 || eventData.conferenceId === aasp ||  eventData.conferenceId === mefforum">
-          <p *ngIf="eventData.conferenceId === colonialsWeekend">Subject to Social27 <a class="color-primary"
-              href="https://s27platformmedia.azureedge.net/digitalevents/CW2020/S27%20Terms%20of%20Use.pdf"
-              target="_blank">Terms of Use</a></p>
           <mat-checkbox [(ngModel)]="isChecked" *ngIf="eventData.conferenceId === clioCon2020">By participating in the
             Clio Cloud Conference you
             are agreeing to our<a class="color-primary" href="https://cliocloudconference.com/tos/" target="_blank">
               Terms, Conditions, and Cancellation Policy.</a></mat-checkbox>
-
-          <mat-checkbox [(ngModel)]="isChecked" *ngIf="eventData.conferenceId === aasp">Check box to accept <a
-              class="color-primary" href="https://e1cdn.social27.com/digitalevents/AASP/AASP_Privacy-Policy-2020.pdf"
-              target="_blank">Privacy Policy.</a>
-          </mat-checkbox>
         </div>
         <!-- <p class="recaptcha">
           Protected by re<span>CAPTCHA</span> and Subject to the Google

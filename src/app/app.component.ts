@@ -127,83 +127,7 @@ export class AppComponent extends Unsubscriber implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     const log = new Logger('myFile');
-    if (environment.production && !environment.production) {
-      Logger.enableProductionMode();
-    }
-
-    this.detectVisibiltyChanges();
-    this.subMessageService();
-    this.subJourneyState();
-
-    this.store.select(selectOtherProfileState).pipe(tap(r => {
-      if (r.toggle && r.userId) {
-        this.toggleOtherprofile = r.toggle;
-        this.selectedUserId = r.userId;
-      } else {
-        this.toggleOtherprofile = false;
-      }
-      this.cdr.markForCheck();
-    })).subscribe();
-
-    this.store.select(selectPosterDetailState).pipe(tap(r => {
-      if (r.toggle && r.posterId) {
-        this.togglePosterDetail = r.toggle;
-        this.posterId = r.posterId;
-        this.posterSerial = r.posterSerial;
-      } else {
-        this.togglePosterDetail = false;
-      }
-      this.cdr.markForCheck();
-    })).subscribe();
-
-    this.store.select(selectProfileState
-    ).pipe(tap(r => {
-      this.isProfileVisible = r;
-      this.cdr.markForCheck();
-    })).subscribe();
-
-    this.store
-      .select(selectEventData)
-      .pipe(
-        tap(res => {
-          if (res) {
-            this.conferenceId = res.conferenceId;
-            this.eventData = res;
-            //this.initializeGoogleTranslate();
-            if (!this.isMicrosoftEvent) {
-              this.appendCookieConsent();
-            }
-              this.appendCookieConsent();
-            this.initMetaTags();
-
-            this.appendEventScripts();
-            this.titleService.setTitle(res.title);
-            this.loadCSSTheme(res.themeCSS);
-            this.loadCustomTheme(res.customStyle);
-            this.initializeGoogleAnalytics(res.googleAnalyticsCode);
-            this.initilizeAdobeAnalyticsScript(res.conferenceId);
-            this.cdr.markForCheck();
-
-            let useLogoAsFavIcon = false;
-            if (typeof res.useLogoAsFavIcon !== 'undefined') {
-              useLogoAsFavIcon = res.useLogoAsFavIcon;
-            }
-            let logo = '';
-            if (typeof res.logo !== 'undefined' && res.logo != null) {
-              logo = res.logo;
-            }
-            let favIconLogo = '';
-            if (typeof res.favoriteIcon !== 'undefined' && res.favoriteIcon != null) {
-              favIconLogo = res.favoriteIcon;
-            }
-            this.ChangeFavIcon(logo, favIconLogo, useLogoAsFavIcon);
-
-            this.cdr.markForCheck();
-          }
-        }),
-        takeUntil(this.unsubscribe)
-      )
-      .subscribe();
+  
 
     this.store.select(selectCurrentUser)
       .pipe(takeUntil(this.unsubscribe))
@@ -306,7 +230,6 @@ export class AppComponent extends Unsubscriber implements OnInit, OnDestroy {
     }
     else {
       let linkElement = document.getElementById('myFavIcon');
-      linkElement.setAttribute('href', '//storage.googleapis.com/social27/images/myfavi.png');
     }
   }
 
@@ -408,7 +331,7 @@ export class AppComponent extends Unsubscriber implements OnInit, OnDestroy {
           lineage: true
         },
         coreData: {
-          appId: "js:social27vep"
+          appId: "js"
         }
       };
       if (typeof awa === 'object') {
